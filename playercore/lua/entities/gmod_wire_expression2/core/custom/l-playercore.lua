@@ -20,7 +20,7 @@ hook.Add("PlayerDeath","Exp2PlayerDeath", function(ply, inflictor, attacker)
             PlayerDeathAlert[e] = nil
         end
     end
-    runByVehicleEnter = 0
+    runByPlayerDeath = 0
 end)
 
 e2function void runOnPlayerDeath(number activate)
