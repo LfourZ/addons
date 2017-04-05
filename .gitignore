@@ -1,0 +1,6 @@
+*
+!.gitignore
+!vehiclecore/
+!vehiclecore/*
+!teamcore/
+!teamcore/*
