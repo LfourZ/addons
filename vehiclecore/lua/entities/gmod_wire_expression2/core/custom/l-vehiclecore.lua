@@ -362,7 +362,6 @@ e2function void entity:setWheelFriction(number wheel, number friction)
 end
 
 e2function void entity:startEngine(number start)
-	print("ver1")
 	if not this or not this:IsVehicle() then return end
 	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
 	this:StartEngine(start == 1)
