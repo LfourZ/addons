@@ -1,0 +1,6 @@
+--E2Helper.Descriptions[""] = ""
+E2Helper.Descriptions["runOnPlayerDeath"] = "If set to 1, chip will run on every player death."
+E2Helper.Descriptions["lastKilledPlayer"] = "Returns the last player who died."
+E2Helper.Descriptions["lastDeathInflictor"] = "Returns the item used to kill the last player."
+E2Helper.Descriptions["lastDeathAttacker"] = "Returns the killer of the last player."
+E2Helper.Descriptions["playerDeathClk"] = "Returns 1 if the chip is being executed because of a player's death. Returns 0 otherwise."
