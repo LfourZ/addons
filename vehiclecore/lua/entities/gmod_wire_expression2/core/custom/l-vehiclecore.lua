@@ -1,5 +1,7 @@
 E2Lib.RegisterExtension("vehiclecore", false)
 
+local vcoreRestrict = CreateConVar("wire_e2_vehiclecore_restrict", "1", FCVAR_SERVER_CAN_EXECUTE, "If enabled, functions that change vehicle stats will only work on entities that you own.")
+
 __e2setcost(1)
 
 local VehicleEnterAlert = {}
@@ -267,62 +269,74 @@ end
 
 e2function void entity:releaseHandbrake()
 	if not this or not this:IsVehicle() then return end
+	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
 	this:ReleaseHandbrake()
 end
 
 e2function void entity:setBoost(number boost)
 	if not this or not this:IsVehicle() then return end
+	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
 	this:SetBoost(boost)
 end
 
 e2function void entity:setCameraDistance(number distance)
 	if not this or not this:IsVehicle() then return end
+	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
 	this:SetCameraDistance(distance)
 end
 
 e2function void entity:setHandbrake(number handbrake)
 	if not this or not this:IsVehicle() then return end
+	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
 	this:SetHandbrake(handbrake == 1)
 end
 
 e2function void entity:setHasBrakePedal(number brakePedal)
 	if not this or not this:IsVehicle() then return end
+	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
 	this:SetHasBrakePedal(brakePedal == 1)
 end
 
 e2function void entity:setMaxReverseThrottle(number maxRevThrottle)
 	if not this or not this:IsVehicle() then return end
+	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
 	this:SetMaxReverseThrottle(maxRevThrottle)
 end
 
 e2function void entity:setMaxThrottle(number maxThrottle)
 	if not this or not this:IsVehicle() then return end
+	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
 	this:SetMaxThrottle(maxThrottle)
 end
 
 --[[e2function void entity:setSpringLength(number wheel, length) --Seems to crash the game regardless of values
 	if not this or not this:IsVehicle() then return end
+	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
 	length = math.Clamp(length, 1, 10)
 	this:SetSpringLength(wheel, length)
 end]]--
 
 e2function void entity:setSteering(number steering)
 	if not this or not this:IsVehicle() then return end
+	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
 	this:SetSteering(steering, 0)
 end
 
 e2function void entity:setSteeringDegrees(number steeringDegrees)
 	if not this or not this:IsVehicle() then return end
+	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
 	this:SetSteeringDegrees(steeringDegrees)
 end
 
 e2function void entity:setThirdPersonMode(number enable)
 	if not this or not this:IsVehicle() then return end
+	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
 	this:SetThirdPersonMode(enable == 1)
 end
 
 e2function void entity:setThrottle(number throttle)
 	if not this or not this:IsVehicle() then return end
+	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
 	this:SetThrottle(throttle)
 end
 
@@ -343,23 +357,28 @@ end]]--
 
 e2function void entity:setWheelFriction(number wheel, number friction)
 	if not this or not this:IsVehicle() then return end
+	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
 	this:SetWheelFriction(wheel, friction)
 end
 
-e2function void entity:startEngine(number run)
-	if not this or not this:IsPlayer() then return end
-	this:StartEngine(run == 1)
+e2function void entity:startEngine(number start)
+	print("ver1")
+	if not this or not this:IsVehicle() then return end
+	if not isOwner(self, this) and vcoreRestrict:GetBool() then return end
+	this:StartEngine(start == 1)
 end
 
 --Start non-standart functions
 
 e2function void entity:exitVehicle()
 	if not this or not this:IsPlayer() then return end
+	if vcoreRestrict:GetBool() then return end
 	this:ExitVehicle()
 end
 
 e2function void entity:enterVehicle(entity vehicle)
 	if not this or not this:IsPlayer() then return end
 	if not vehicle or not vehicle:IsVehicle() then return end
+	if not isOwner(self, vehicle) and vcoreRestrict:GetBool() then return end
 	this:EnterVehicle(vehicle)
 end
