@@ -4,3 +4,7 @@
 !vehiclecore/*
 !teamcore/
 !teamcore/*
+!playercore/
+!playercore/*
+!weaponcore/
+!weaponcore/*
