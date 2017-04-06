@@ -1,4 +1,4 @@
-E2Lib.RegisterExtension("weaponcore", false)
+E2Lib.RegisterExtension("weaponcore", false, "Adds functions dealing with weapons.")
 
 __e2setcost(1)
 
