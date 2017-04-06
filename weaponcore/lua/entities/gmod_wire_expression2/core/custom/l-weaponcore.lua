@@ -49,18 +49,6 @@ e2function number weaponSwitchClk()
     return runByWeaponSwitch
 end
 
---Player functions
-
-e2function void entity:give(string weapon)
-    if not this or not this:IsPlayer() then return end
-    this:Give(weapon)
-end
-
-e2function void entity:giveAmmo(number amount, number type)
-    if not this or not this:IsPlayer() then return end
-    this:GiveAmmo(amount, type, false)
-end
-
 --Weapon functions-
 
 --allowsAutoSwitchFrom

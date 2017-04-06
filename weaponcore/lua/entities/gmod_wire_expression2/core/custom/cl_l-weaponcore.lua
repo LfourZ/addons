@@ -1,7 +1,5 @@
 --E2Helper.Descriptions[""] = ""
-E2Helper.Descriptions["give"] = "Gives the player a weapon."
 E2Helper.Descriptions["getPrimaryAmmoType"] = "Gets the primary ammo type of the given weapon."
-E2Helper.Descriptions["giveAmmo"] = "Gives ammo to a player. (n:amount, n:type)"
 E2Helper.Descriptions["givePrimaryAmmo"] = "Gives ammo for the player's current active weapon."
 E2Helper.Descriptions["getHoldType"] = "Returns the hold type of the weapon."
 E2Helper.Descriptions["getMaxClip1"] = "Returns maximum primary clip size."
@@ -27,11 +25,3 @@ E2Helper.Descriptions["lastWeaponSwitchPly"] = "Returns the last player who swit
 E2Helper.Descriptions["oldWeapon"] = "Returns the last weapon switched from."
 E2Helper.Descriptions["newWeapon"] = "Returns the last weapon switched to."
 E2Helper.Descriptions["weaponSwitchClk"] = "Returns 1 if the chip is being executed because of a weapon switch. Returns 0 otherwise."
-
-
-
-
-
-
-
-
