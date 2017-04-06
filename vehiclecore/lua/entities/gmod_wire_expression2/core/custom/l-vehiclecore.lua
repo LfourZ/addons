@@ -1,4 +1,4 @@
-E2Lib.RegisterExtension("vehiclecore", false)
+E2Lib.RegisterExtension("vehiclecore", false, "Adds functions for getting more data from vehicles as well as editing some vehicle stats.")
 
 local vcoreRestrict = CreateConVar("wire_e2_vehiclecore_restrict", "1", FCVAR_SERVER_CAN_EXECUTE, "If enabled, functions that change vehicle stats will only work on entities that you own.")
 
